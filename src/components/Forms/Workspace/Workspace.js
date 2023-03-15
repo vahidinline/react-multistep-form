@@ -6,14 +6,14 @@ import * as yup from 'yup';
 function Workspace() {
   const { activeStepIndex, setActiveStepIndex, formData, setFormData } =
     useContext(FormContext);
-
+  console.log(formData);
   const renderError = (message) => (
     <p className="italic text-red-600">{message}</p>
   );
 
   const ValidationSchema = yup.object().shape({
     numOfParticipants: yup.number().required(),
-    diet: yup.string().required('Required'),
+    diet: yup.string().required(),
   });
 
   return (
@@ -39,18 +39,27 @@ function Workspace() {
             placeholder="Number of Participants"
           />
         </div>
-        <p>tips; If you plan to participate alone, please enter 1</p>
+        <p className="text-gray-500 text-sm italic mb-2">
+          tips: If you plan to participate alone, please enter 1
+        </p>
         <ErrorMessage name="numOfParticipants" render={renderError} />
         <div className="flex flex-col items-start mb-2">
-          <label className="font-medium text-gray-900">Workspace URL</label>
-          <Field name="diet" as="select" className="form-control">
+          <label className="font-medium text-gray-900">Diet Preferences</label>
+          <Field
+            name="diet"
+            as="select"
+            // className="form-control"
+            className="rounded-md border-2 p-2">
             <option value="">Select an option</option>
             <option value="vegan">Vegan</option>
             <option value="not_vegan">Not Vegan</option>
           </Field>
         </div>
-        <ErrorMessage name="workspaceURL" render={renderError} />
+        <ErrorMessage name="diet" render={renderError} />
         <button
+          // onClick={() => {
+          //   handleSubmit(formData);
+          // }}
           className="rounded-md bg-indigo-500 font-medium text-white my-2 p-2"
           type="submit">
           Continue

@@ -1,7 +1,7 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useContext } from "react";
-import { FormContext } from "../../../App";
-import * as yup from "yup";
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import React, { useContext } from 'react';
+import { FormContext } from '../../../App';
+import * as yup from 'yup';
 
 function Basic() {
   const { activeStepIndex, setActiveStepIndex, formData, setFormData } =
@@ -19,24 +19,25 @@ function Basic() {
   return (
     <Formik
       initialValues={{
-        name: "",
-        email: "",
+        name: '',
+        email: '',
       }}
       validationSchema={ValidationSchema}
       onSubmit={(values) => {
         const data = { ...formData, ...values };
         setFormData(data);
         setActiveStepIndex(activeStepIndex + 1);
-      }}
-    >
+      }}>
       <Form className="flex flex-col justify-center items-center">
-        <div className="text-2xl font-medium self-center mb-2">Welcome!</div>
+        <div className="text-xl font-medium self-center mb-2 text-center">
+          Registration for Nowruz Party 1402 in Tartu!
+        </div>
         <div className="flex flex-col items-start mb-2">
           <label className="font-medium text-gray-900">Name</label>
           <Field
             name="name"
             className="rounded-md border-2 p-2"
-            placeholder="John Doe"
+            placeholder="your name"
           />
         </div>
         <ErrorMessage name="name" render={renderError} />
@@ -51,8 +52,7 @@ function Basic() {
         <ErrorMessage name="email" render={renderError} />
         <button
           className="rounded-md bg-indigo-500 font-medium text-white my-2 p-2"
-          type="submit"
-        >
+          type="submit">
           Continue
         </button>
       </Form>
