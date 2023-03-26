@@ -28,7 +28,7 @@ function Basic() {
         setFormData(data);
         setActiveStepIndex(activeStepIndex + 1);
       }}>
-      <Form className="flex flex-col justify-center items-center">
+      {/* <Form className="flex flex-col justify-center items-center">
         <div className="text-xl font-medium self-center mb-2 text-center">
           Registration for Nowruz Party 1402 in Tartu!
         </div>
@@ -55,7 +55,7 @@ function Basic() {
           type="submit">
           Continue
         </button>
-      </Form>
+      </Form> */}
     </Formik>
   );
 }

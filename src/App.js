@@ -14,8 +14,12 @@ function App() {
       <Helmet title="Nowruz registration form" />
 
       <div className="w-screen h-screen flex flex-col items-center justify-start">
-        <Stepper />
-        <Step />
+        <div className="text-2xl font-medium self-center mb-2 text-center">
+          Registration for Nowruz Party 1402 in Tartu has been closed!
+        </div>
+
+        {/* <Stepper />
+        <Step /> */}
         <p className="text-center text-gray-500 text-xs italic mt-4">
           Powered by{' '}
           <a href="https://iraniansupportive.org">
